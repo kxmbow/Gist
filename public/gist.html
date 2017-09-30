@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gist</title>
+  <link rel="icon" type="image/gif/png" href="icon.png">
+   
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Amiri|Bungee+Shade|Quicksand" rel="stylesheet">
+  <!-- FONT AWESOME -->
+  <script src="https://use.fontawesome.com/c7a389ab5e.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  
+  <!-- NABAR BEGIN -->
+  <nav class="fixed-top navbar navbar-expand-lg navbar-inverse bg-dark">
+    <!-- Brand - kicks user to index page -->
+    <a class="navbar-brand" href="gist.html">
+      <h1 class="display-5">GIST</h1>
+    </a>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#extend-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars fa-lg"></i>
+    </button>
+      <!-- Collapsed Items -->
+    <div class="collapse navbar-collapse" id="extend-navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="gist.html">Browse<span class="sr-only">(current)></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="search.html">Search</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore more</a>
+          <!-- Dropdown menu -->
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="politics.html">Politicians</a>
+            <a class="dropdown-item" href="bills.html">Lookup Bills</a>
+            <a class="dropdown-item" href="#">Legal</a>
+          </div>
+        </li>
+      </ul>
+      <!-- NEED TO CREATE: login button show until user logs in, 
+      then show user icon so user can access user data
+      -WORK IN PROGRESS- -->
+      <a href="#" class="btn btn-outline-success btn-sm my-2 my-sm-2" role="button" data-toggle="modal" data-target="#login-modal"><span class="text-light">Login /</span>Sign Up</a>
+    </div>
+  </nav>
+  <!-- NAVBAR END -->
+
+  <!-- BEGIN # MODAL LOGIN -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <img class="img-circle" id="img_logo" src="assets/img/logo.png">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-times" aria-hidden="true"></span></button>
+        </div>
+        <!-- Begin # DIV Form -->
+        <div id="div-forms">
+          <!-- Begin # Login Form -->
+          <form id="login-form">
+            <div class="modal-body">
+              <div id="div-login-msg">
+                <div id="icon-login-msg" class="fa fa-chevron-right"></div>
+                <span id="text-login-msg">Type your username and password.</span>
+              </div>
+              <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+              <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+              </div>
+              <div>
+                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End # Login Form -->
+
+          <!-- Begin | Lost Password Form -->
+          <form id="lost-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-lost-msg">
+                <div id="icon-lost-msg" class="fa fa-chevron-right"></div>
+                <span id="text-lost-msg">Type your e-mail.</span>
+              </div>
+              <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+              </div>
+              <div>
+                <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End | Lost Password Form -->
+
+          <!-- Begin | Register Form -->
+          <form id="register-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-register-msg">
+                <div id="icon-register-msg" class="fa fa-chevron-right"></div>
+                <span id="text-register-msg">Register an account.</span>
+              </div>
+              <input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+              <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+              <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+              </div>
+              <div>
+                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+              </div>
+            </div>
+          </form><!-- End | Register Form -->
+        </div><!-- End # DIV Form -->
+      </div>
+    </div>
+  </div>
+  <!-- END # MODAL LOGIN -->
+
+<div class="main container-fluid">
+  <!-- TOP POSTS -->
+  <div class="card-deck">
+    <div id="top-political" class="card bg-dark text-white">
+      <img class="card-img" id="top-political-img" src="https://static01.nyt.com/images/2017/09/07/podcasts/07DAILY/07DAILY-master768.jpg" alt="Card image">
+      <div class="card-img-overlay">
+        <h4 class="card-title" id="top-political-title">Dream Act of 2017</h4>
+        <p class="card-text" id="top-political-text">Lawmakers intend to make residency possible for undocumented immigrants under certain conditions.</p>
+        <p class="card-text">
+          <h5 class="links"><a class="brand text-white" href="beengisted.html">G  </a>
+        <a href="https://www.congress.gov/115/bills/s1615/BILLS-115s1615is.pdf" target="_blank"><i class="fa fa-book text-white"></i></a></h5>
+        </p>
+      </div>
+    </div>  
+  </div>
+
+  <div class="card-deck">
+    <div id="top-science" class="card">
+      <img class="card-img-top" id="top-science-img" src="https://www.panerabread.com/foundation/menu/details/sourdough-bread-loaf.jpg/_jcr_content/renditions/sourdough-bread-loaf.desktop.jpeg" alt="Card image cap">
+      <div class="card-body">
+          <h4 class="card-title" id="top-science-title">Science</h4>
+          <p class="card-text" id="top-science-text">Scientists have figured out a way to remove gluten from bread via gene editing with CRISPR.</p>
+      </div>
+      <div class="card-footer bg-dark">
+        <h5 class="links text-white">
+          <a class="brand" href="beengisted.html">G  </a><span class="small">Gisted</span>
+          <a href="http://onlinelibrary.wiley.com/doi/10.1111/pbi.12837/epdf"><i class="fa fa-book"></i></a><span class="small"> Full Text</span>
+        </h5>
+      </div>
+    </div>
+    <div class="card" id="top-legal">
+      <img class="card-img-top" id="top-legal-img" src="https://i0.wp.com/applemagazine.com/wp-content/uploads/2016/02/image15.jpeg?fit=770%2C433&ssl=1" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title" id="top-legal-title">Legal</h4>
+        <p class="card-text" id="top-legal-text">Apples Terms and Conditions, summarized neatly for your viewing pleasure.</p>
+      </div>
+      <div class="card-footer bg-dark">
+        <h5 class="links text-success"><a class="brand" href="beengisted.html">G  </a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html"><i class="fa fa-book"></i></a></h5>
+      </div>
+    </div>
+  </div>
+  <!-- SECONDARY POSTS -->
+  
+  <div class="card-deck" id="secondary-posts">
+    <div class="card" id="alt-political">
+      <img class="card-img-top" id="alt-political-img" src="https://sites.google.com/site/northkoreakimfrankleper2/_/rsrc/1307421328331/team-sponsors/work%20camps.jpg" alt="Card image cap">
+      <div class="card-body">
+          <h4 class="card-title" id="alt-political-title">Political</h4>
+          <p class="card-text" id="alt-political-text"> North Korean Human Rights Reauthorization Act of 2017.</p>
+      </div>
+      <div class="card-footer bg-dark">
+        <h5 class="links text-success"><a class="brand" href="beengisted.html">G  </a>
+        <a href="http://docs.house.gov/billsthisweek/20170925/HR2061.pdf"><i class="fa fa-book"></i></a></h5>
+      </div>
+    </div>
+    <div class="card" id="alt-science">
+      <img class="card-img-top" id="alt-science-img" src="http://www.ideadigezt.com/wp-content/uploads/2017/02/Salt-014-1024x614.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title" id="alt-science-title">Science</h4>
+        <p class="card-text" id="alt-science-text">The presence of microplastics in commercial salt from different countries.</p>
+      </div>
+      <div class="card-footer bg-dark">
+        <h5 class="links text-success"><a class="brand" href="beengisted.html">G  </a>
+        <a href="https://www.nature.com/articles/srep46173"><i class="fa fa-book"></i></a></h5>
+      </div>
+      </div>
+    <div class="card" id="alt-legal">
+      <img class="card-img-top" id="alt-legal-img" src="https://www.snapchat.com/global/social-lg.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title" id="alt-legal-title">Legal</h4>
+        <p class="card-text" id="alt-legal-text">Snapchat's Terms and Conditions.</p>
+      </div>
+      <div class="card-footer bg-dark">
+        <h5 class="links text-success"><a class="brand" href="beengisted.html">G  </a>
+        <a href="https://www.snap.com/en-US/terms/"><i class="fa fa-book"></i></a></h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="navbar navbar-secondary bg-light footer">
+    <h1 class="brand">G</h1>
+    <p class="footer-link">   </p>
+    <a href="about.html" class="footer-link">About</a>
+    <p class="footer-link">|</p>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <p class="footer-link">   </p>
+  </div>
+                        
+   
+  <!-- jQuery/Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  
+  <!-- Custom Script -->
+  <script src="assets/js/login.js"></script>
+  
+</body>
+</html>

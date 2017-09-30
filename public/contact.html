@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact</title>
+  <link rel="icon" type="image/gif/png" href="icon.png">
+   
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Amiri|Bungee+Shade|Quicksand" rel="stylesheet">
+  <!-- FONT AWESOME -->
+  <script src="https://use.fontawesome.com/c7a389ab5e.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  
+  <!-- NABAR BEGIN -->
+  <nav class="fixed-top navbar navbar-expand-lg navbar-inverse bg-dark">
+    <!-- Brand - kicks user to index page -->
+    <a class="navbar-brand" href="gist.html">
+      <h1 class="display-5">GIST</h1>
+    </a>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#extend-navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars fa-lg"></i>
+    </button>
+      <!-- Collapsed Items -->
+    <div class="collapse navbar-collapse" id="extend-navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="gist.html">Browse</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="search.html">Search</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore more</a>
+          <!-- Dropdown menu -->
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="politics.html">Politicians</a>
+            <a class="dropdown-item" href="bills.html">Lookup Bills</a>
+            <a class="dropdown-item" href="#">Legal</a>
+          </div>
+        </li>
+      </ul>
+      <!-- NEED TO CREATE: login button show until user logs in, 
+      then show user icon so user can access user data
+      -WORK IN PROGRESS- -->
+      <a href="#" class="btn btn-outline-success btn-sm my-2 my-sm-2" role="button" data-toggle="modal" data-target="#login-modal"><span class="text-light">Login /</span>Sign Up</a>
+    </div>
+  </nav>
+  <!-- NAVBAR END -->
+
+  <!-- BEGIN # MODAL LOGIN -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" align="center">
+          <img class="img-circle" id="img_logo" src="assets/img/logo.png">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-times" aria-hidden="true"></span></button>
+        </div>
+        <!-- Begin # DIV Form -->
+        <div id="div-forms">
+          <!-- Begin # Login Form -->
+          <form id="login-form">
+            <div class="modal-body">
+              <div id="div-login-msg">
+                <div id="icon-login-msg" class="fa fa-chevron-right"></div>
+                <span id="text-login-msg">Type your username and password.</span>
+              </div>
+              <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+              <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+              </div>
+              <div>
+                <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End # Login Form -->
+
+          <!-- Begin | Lost Password Form -->
+          <form id="lost-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-lost-msg">
+                <div id="icon-lost-msg" class="fa fa-chevron-right"></div>
+                <span id="text-lost-msg">Type your e-mail.</span>
+              </div>
+              <input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+              </div>
+              <div>
+                <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+              </div>
+            </div>
+          </form>
+          <!-- End | Lost Password Form -->
+
+          <!-- Begin | Register Form -->
+          <form id="register-form" style="display:none;">
+            <div class="modal-body">
+              <div id="div-register-msg">
+                <div id="icon-register-msg" class="fa fa-chevron-right"></div>
+                <span id="text-register-msg">Register an account.</span>
+              </div>
+              <input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+              <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+              <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+            </div>
+            <div class="modal-footer">
+              <div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+              </div>
+              <div>
+                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+              </div>
+            </div>
+          </form><!-- End | Register Form -->
+        </div><!-- End # DIV Form -->
+      </div>
+    </div>
+  </div>
+  <!-- END # MODAL LOGIN -->
+
+
+  
+  <div class="content container-fluid">
+    <!-- Gisted Info -->
+    <div class="card top-form">
+      <h2 class="card-header" style="text-align:center">Coming soon...</h2>
+      <div class="card-body">
+        <p style="text-align:center">(maybe)</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="navbar navbar-secondary bg-light footer fixed-bottom">
+    <h1 class="brand">G</h1>
+    <p class="footer-link">   </p>
+    <a href="about.html" class="footer-link">About</a>
+    <p class="footer-link">|</p>
+    <a href="contact.html" class="footer-link">Contact</a>
+    <p class="footer-link">   </p>
+  </div>
+                        
+  <!-- jQuery/Bootstrap 4  -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  
+  <!-- Custom Script -->
+  <script src="assets/js/login.js"></script>
+  
+</body>
+</html>
